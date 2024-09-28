@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 3px;
+    background-color: #1bff2a;
+}
+
+.allBox {
+    display: inline-block;
+    background-color: #12a01b;
+    border-radius: 25px;
+    border: 3px solid #000000;
+    box-shadow: 0 0 150px rgba(0, 0, 0, 0.8);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    transform: matrix();
+    width: 900px;
+}
+
+.container {
+    display: inline-block;
+    padding: 15px;
+    margin-top:30px;
+    margin-bottom: 30px;
+    width: 400px;
+    
+}
+
+.stat-container {
+    display: inline-block;
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 400px;
+    transition: opacity 0.8s ease; /* For smooth opacity transitions */
+}
+
+.stat-container.disabled {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden; /* Hides the element */
+}
+
+
+h1 {
+    color: #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #000000;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+label {
+    font-size: 20px;
+    color: #000000;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+input[type="number"] {
+    padding: 3px;
+    margin-top: 5px;
+    font-size: 16px;
+    width: 180px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+}
+
+.counter-display {
+    margin: 1px;
+}
+
+.counter-display p {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #000000;
+}
+
+.moneyDisplay p {
+    font-size: 100px;
+    font-weight: bold;
+    color: #16c222;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+.timer-display p {
+    font-size: 1.5em;
+    color: #000000;
+}
+
+.button-group {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+button {
+    padding: 13px;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 30px;
+    border: 3px solid #000000;
+    cursor: pointer;
+}
+
+#startButton {
+    background-color: green;
+    color: white;
+}
+
+#stopButton {
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+#resetButton {
+    background-color: #a318ff;
+    color: white;
+}
+
+button:disabled {
+    transition: opacity 0.28s ease;
+    opacity: 0
+    ;
+    cursor: not-allowed;
+}

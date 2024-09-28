@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Counter</title>
+    <link rel="stylesheet" href="styleG1.css">
+</head>
+<body>
+    <div class="allBox">
+        <div class="container">
+            <h1>Money Counter</h1>
+        
+            <label for="rate">Enter Rate ($/hr):</label>
+            <input type="number" id="rate" placeholder="Enter rate" step="0.01">
+        
+            <div class="counter-display">
+                <h1>Earned so far:</h1>
+            </div>
+
+            <div class="moneyDisplay">
+                <p>$<span id="money">0.00</span></p>
+            </div>
+
+            <div class="time-of-emplyment">
+                <h2>Started at: <span id="toe"></span></h2>
+            </div>
+
+            <div class="timer-display">
+                <h2>Time Elapsed: <span id="timerD">00:00:00</span></h2>
+            </div>
+        </div>
+    
+        <div class="button-group">
+            <button id="startButton">Start</button>
+            <button id="resetButton">Reset</button>
+            <button id="stopButton" disabled>Stop</button>
+        </div>
+    
+        <div class="stat-container">
+            <h1>More Stats</h1>
+
+            <div class="tax-display1";>
+                <h1>Estimated Tax %: <span id="taxD1">0</span></h1>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="scriptG1.js"></script>
+</body>
+</html>
