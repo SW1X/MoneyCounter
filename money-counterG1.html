@@ -7,28 +7,13 @@
     <link rel="stylesheet" href="styleG1.css">
 </head>
 <body>
-    <div class="allBox">
-        <div class="container">
+    <div class="allBox"> <!-- All Box -->
+        <div class="container"> <!-- Inital Box -->
             <h1>Money Counter</h1>
         
-            <label for="rate">Enter Rate ($/hr):</label>
-            <input type="number" id="rate" placeholder="Enter rate" step="0.01">
-        
-            <div class="counter-display">
-                <h1>Earned so far:</h1>
-            </div>
+            <h2 for="rate">Enter Rate ($/hr):</h2> 
+            <input type="number" id="rate" value="3600" step="0.01">
 
-            <div class="moneyDisplay">
-                <p>$<span id="money">0.00</span></p>
-            </div>
-
-            <div class="time-of-emplyment">
-                <h2>Started at: <span id="toe"></span></h2>
-            </div>
-
-            <div class="timer-display">
-                <h2>Time Elapsed: <span id="timerD">00:00:00</span></h2>
-            </div>
         </div>
     
         <div class="button-group">
@@ -36,12 +21,35 @@
             <button id="resetButton">Reset</button>
             <button id="stopButton" disabled>Stop</button>
         </div>
+
+        <div class="loadOnStart"> <!-- Load on click Start Box -->
+
+            <div class="moneyDisplay">
+                <p>$<span id="money">0.00</span></p>
+            </div>
+
+            <div class="timer-display">
+                <h2>Total Time Elapsed:</h2> 
+                <h3><span id="timerD">00:00:00</span></h3>
+            </div>
+
+        </div>    
     
-        <div class="stat-container">
+        <div class="stat-container"> <!-- Load on click Stop Box -->
             <h1>More Stats</h1>
 
-            <div class="tax-display1";>
-                <h1>Estimated Tax %: <span id="taxD1">0</span></h1>
+            <div class="time-of-emplyment">
+                <h2 style="display: inline;">Started at:</h2>
+                <h3 style="display: inline;"><span id="toe"></span></h3>
+            </div>
+
+            <div class="tax-display1">
+                <h2>Estimated Tax %: </h2>
+                <h3><span id="taxD1">0</span><h2></h2>
+                <h2>Estimated Net Pay: </h2>
+                <h3><span id="taxD2">0</span><h2></h2>
+                <h2>Estimated Gross Pay </h2>
+                <h3><span id="taxD3">0</span><h2></h2>
             </div>
         </div>
 

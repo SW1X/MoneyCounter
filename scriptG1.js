@@ -10,8 +10,14 @@ const startButton = document.getElementById('startButton'); // start button
 const resetButton = document.getElementById('resetButton'); // reset button
 const stopButton = document.getElementById('stopButton');// stop button
 
-// Variables to track state
-document.querySelector('.stat-container').classList.add('disabled');//Hides more stats container
+const moreStatsContainer = document.querySelector('.stat-container');// Container that loads on start
+const startContainer = document.querySelector('.loadOnStart');// Container that load when start is clicked
+
+// Setting inital states of containers.
+moreStatsContainer.classList.add('disabled'); //Hides more stats container or end click
+startContainer.classList.add('disabled'); // Hides the start click container
+
+// Variables to track state of
 let startTime = 0, elapsedTime = 0, moneyPerSecond = 0, totalMoney = 0, timerInterval;
 let toestring = 'empty';
 let taxPercentage;
@@ -22,8 +28,9 @@ startButton.addEventListener('click', () => {
 
     // Only start if the rate is a valid number
     if (!isNaN(moneyPerSecond) && moneyPerSecond > 0) {
+        document.querySelector('.loadOnStart').classList.remove('disabled');//Show money counter
         startTime = Date.now();  // Reset start time to now
-        timerInterval = setInterval(update, 10);  // Update both money and timer every 10ms
+        timerInterval = setInterval(update, 66);  // Update both money and timer every 10ms
 
         startButton.disabled = true; // Hides start button
         stopButton.disabled = false; // Shows end button
@@ -42,6 +49,11 @@ startButton.addEventListener('click', () => {
 
 // Add event listener to Reset button
 resetButton.addEventListener('click', () => {
+    startContainer.classList.add('disabled');
+    moreStatsContainer.classList.add('disabled');// Hides more stats container
+    startButton.disabled = false; //Shows start button
+    stopButton.disabled = true; //Hides end button
+
     clearInterval(timerInterval);
     startTime = 0;
     totalMoney = 0;
@@ -50,10 +62,6 @@ resetButton.addEventListener('click', () => {
     timerDisplay.textContent = '00:00:00';
     toestring = 'empty';
     toe.textContent = '';
-
-    startButton.disabled = false; //Shows start button
-    stopButton.disabled = true; //Hides end button
-    document.querySelector('.stat-container').classList.add('disabled');// Hides more stats container
 });
 
 // Add event listener to Stop button
