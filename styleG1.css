@@ -13,61 +13,83 @@ body {
     box-shadow: 0 0 150px rgba(0, 0, 0, 0.8);
     margin-top: 50px;
     margin-bottom: 50px;
-    transform: matrix();
     width: 900px;
 }
 
+/*INITIAL LOAD*/
 .container {
     display: inline-block;
     padding: 15px;
     margin-top:30px;
     margin-bottom: 30px;
-    width: 400px;
-    
+    width: 95%;
 }
 
+
+/*END BUTTON LOAD*/
 .stat-container {
     display: inline-block;
     padding: 15px;
     margin-top: 30px;
     margin-bottom: 30px;
-    width: 400px;
     transition: opacity 0.8s ease; /* For smooth opacity transitions */
+    width: 95%;
+    opacity: 100;
 }
 
 .stat-container.disabled {
     opacity: 0;
     pointer-events: none;
     visibility: hidden; /* Hides the element */
+    transition: opacity 0.8s ease;
+}
+
+/*START BUTTON LOAD*/
+.loadOnStart{
+    display: inline-block;
+    transition: opacity 0.8s ease;
+    opacity: 100;
+}
+
+.loadOnStart.disabled {
+    display: inline-block;
+    transition: opacity 0.1s ease;
+    opacity: 0;
 }
 
 
 h1 {
+    font-size: 40px;
+    font-weight: 900;
     color: #000000;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 h2 {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
     color: #000000;
     margin-top: 3px;
     margin-bottom: 3px;
 }
 
-label {
-    font-size: 20px;
-    color: #000000;
-    margin-top: 1px;
-    margin-bottom: 1px;
+h3 {
+    display: inline-block;
+    font-size: 27px;
+    font-weight: 300;
+    color: #8a008e;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 input[type="number"] {
     padding: 3px;
-    margin-top: 5px;
-    font-size: 16px;
-    width: 180px;
-    border-radius: 5px;
-    border: 1px solid #000000;
+    font-size: 22px;
+    width: 75px;
+    border-radius: 8px;
+    border: 2px solid #000000;
 }
 
 .counter-display {
@@ -95,6 +117,8 @@ input[type="number"] {
 }
 
 .button-group {
+    height: 80px;
+    display: center;
     margin-top: 1px;
     margin-bottom: 1px;
 }
@@ -126,7 +150,6 @@ button {
 
 button:disabled {
     transition: opacity 0.28s ease;
-    opacity: 0
-    ;
+    opacity: 0%;
     cursor: not-allowed;
 }
