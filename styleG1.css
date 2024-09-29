@@ -19,7 +19,7 @@ body {
 /*INITIAL LOAD*/
 .container {
     display: inline-block;
-    padding: 15px;
+    padding: 10px;
     margin-top:30px;
     margin-bottom: 30px;
     width: 95%;
@@ -33,7 +33,7 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
     transition: opacity 0.8s ease; /* For smooth opacity transitions */
-    width: 95%;
+    width: 75%;
     opacity: 100;
 }
 
@@ -64,6 +64,9 @@ h1 {
     color: #000000;
     margin-top: 8px;
     margin-bottom: 8px;
+    margin-left: 3px;
+    margin-right:3px;
+    text-shadow: 0 -4px 75px rgba(0, 0, 0, 0.85);
 }
 
 h2 {
@@ -73,15 +76,19 @@ h2 {
     color: #000000;
     margin-top: 3px;
     margin-bottom: 3px;
+    margin-left: 3px;
+    margin-right: 0px;
 }
 
 h3 {
     display: inline-block;
     font-size: 27px;
     font-weight: 300;
-    color: #8a008e;
+    color: #ffffff;
     margin-top: 3px;
     margin-bottom: 3px;
+    margin-left: 0px;
+    margin-right: 5px;
 }
 
 input[type="number"] {
@@ -90,16 +97,6 @@ input[type="number"] {
     width: 75px;
     border-radius: 8px;
     border: 2px solid #000000;
-}
-
-.counter-display {
-    margin: 1px;
-}
-
-.counter-display p {
-    font-size: 1.3em;
-    font-weight: bold;
-    color: #000000;
 }
 
 .moneyDisplay p {
@@ -117,7 +114,6 @@ input[type="number"] {
 }
 
 .button-group {
-    height: 80px;
     display: center;
     margin-top: 1px;
     margin-bottom: 1px;
@@ -142,6 +138,7 @@ button {
     background-color: rgb(255, 0, 0);
     color: white;
 }
+
 
 #resetButton {
     background-color: #a318ff;

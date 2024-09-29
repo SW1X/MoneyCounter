@@ -4,7 +4,9 @@ const rateInput = document.getElementById('rate'); //user input Rate
 const moneyDisplay = document.getElementById('money'); //money counter display
 const toe = document.getElementById('toe'); //Start time display
 const timerDisplay = document.getElementById('timerD'); // timer display
-const taxRateDisplay = document.getElementById('taxD1');
+const taxRateDisplay = document.getElementById('taxD1'); // Tax Rate display
+const grossPayDisplay = document.getElementById('taxD2'); // Gross Pay Display
+const netPayDisplay = document.getElementById('taxD3'); // Net Display
 
 const startButton = document.getElementById('startButton'); // start button
 const resetButton = document.getElementById('resetButton'); // reset button
@@ -20,7 +22,7 @@ startContainer.classList.add('disabled'); // Hides the start click container
 // Variables to track state of
 let startTime = 0, elapsedTime = 0, moneyPerSecond = 0, totalMoney = 0, timerInterval;
 let toestring = 'empty';
-let taxPercentage;
+let taxPercentage, netPay, grossPay, currentMoney; //undefined state
 
 // Add event listener to the Start button
 startButton.addEventListener('click', () => {
@@ -43,7 +45,7 @@ startButton.addEventListener('click', () => {
         }
 
     } else {
-        alert("You should'nt be paying your employer.");
+        alert("You should be paid money for working.");
     }
 });
 
@@ -58,6 +60,11 @@ resetButton.addEventListener('click', () => {
     startTime = 0;
     totalMoney = 0;
     elapsedTime = 0;
+    taxPercentage = '0 ';
+    netPay = '0 ';
+    grossPay = '0 ';
+
+    
     moneyDisplay.textContent = '0.00';
     timerDisplay.textContent = '00:00:00';
     toestring = 'empty';
@@ -80,12 +87,14 @@ stopButton.addEventListener('click', () => {
 
     taxFind(rateInput.value);
     taxRateDisplay.textContent = taxPercentage.toString().slice(-2);
+    grossPayDisplay.textContent = grossPay.toFixed(2); //Gross pay update
+    netPayDisplay.textContent = netPay; //net pay update
 });
 
 // Function to update money, timer
 function update() {
     let currentElapsedTime = (Date.now() - startTime) / 1000;  // Time since the last start
-    let currentMoney = totalMoney + (currentElapsedTime * moneyPerSecond);  // Add the earned money
+    currentMoney = totalMoney + (currentElapsedTime * moneyPerSecond);  // Add the earned money
     moneyDisplay.textContent = currentMoney.toFixed(2);  // Update the money display
     timerDisplay.textContent = formatTime(currentElapsedTime + elapsedTime);  // Show total time
 }
@@ -118,65 +127,41 @@ function taxFind(hourlyRate){
 
     if (yearRate >= tB6) {
         taxPercentage = 0.37;
-        
+        grossPay = currentMoney;
+        netPay = (currentMoney * (1 - taxPercentage)).toFixed(2);
 
-        //log
-        console.log('your in the 6th or highest bracket');
-        
-    
     }else if (yearRate >= tB5) {
         taxPercentage = 0.35;
-        
-
-        //log
-        
-        console.log('your in the 5th bracket');
+        grossPay = currentMoney;
+        netPay = (currentMoney * (1 - taxPercentage)).toFixed(2);
 
     }else if (yearRate >= tB4) {
         taxPercentage = 0.32;
-        
-
-        //log
-        
-        console.log('your in the 4th bracket');
+        grossPay = currentMoney;
+        netPay = (currentMoney * (1 - taxPercentage)).toFixed(2);
 
     }else if (yearRate >= tB3) {
         taxPercentage = 0.24;
-        
-
-        //log
-        
-        console.log('your in the 3rd bracket');
+        grossPay = currentMoney;
+        netPay = (currentMoney * (1 - taxPercentage)).toFixed(2);
 
     }else if (yearRate >= tB2) {
         taxPercentage = 0.22;
-        
-
-        //log
-        
-        console.log('your in the 2nd bracket');
+        grossPay = currentMoney;
+        netPay = (currentMoney * (1 - taxPercentage)).toFixed(2);
 
     }else if (yearRate >= tB1) {
         taxPercentage = 0.12;
-        
-
-        //log
-        
-        console.log('your in the 1st bracket');
+        grossPay = currentMoney;
+        netPay = (currentMoney * (1 - taxPercentage)).toFixed(2);
 
     }else if (yearRate < tB1) {
         taxPercentage = 0.10;
-        
-
-        //log
-        
-        console.log('Your in the 0 bracket');
+        grossPay = currentMoney;
+        netPay = (currentMoney * (1 - taxPercentage)).toFixed(2);
 
     }else {
-        
-
-        //log
-        
+        alert("There was an error");
         console.log('!FUCKED!');
     }
 }
